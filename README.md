@@ -40,5 +40,5 @@ curl -X POST http://localhost:3000/api/v1/InitializeCommodity
 curl http://localhost:3000/api/v1/GetCommodity
 ```
 
-* As DB is being updated with new Commodity, Kafka will notify the receiver 
-which in turns will update the cache. 
+* As DB is being updated with new Commodity data after every 10 seconds, Kafka will notify the receiver 
+which in turns will update the cache.
