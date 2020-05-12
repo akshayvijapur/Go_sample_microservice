@@ -1,4 +1,4 @@
-# A sample Cache Go microservice
+# Simple Cache Go microservice
 
 This is a simple Microservice which will provide top commodity (Iron, Gold, Platinium and silver).
 Gorilla is used as web toolkit, It makes use of go-cache to store the data in cache-memory,
