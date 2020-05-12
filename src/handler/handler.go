@@ -11,7 +11,21 @@ import (
 var Cache = cache.New(cache.NoExpiration,cache.NoExpiration)
 
 func GetCommodity(w http.ResponseWriter, _ *http.Request) {
-
+	// swagger:operation GET /api/v1/GetCommodity GetCommodity
+	//
+	// Returns Top Commodity item from stock market.
+	// It will cache the item until data is updated
+	// in DB, Then receiver will get notification
+	// which will update the cache itself.
+	// ---
+	// consumes:
+	// - text/plain
+	// produces:
+	// - text/plain
+	// responses:
+	//   '200':
+	//     description: Top Commodity Item from the stock market
+	//     type: string
 	data, found := Cache.Get(config.DBCollectionName)
 	if found {
 		  d  := data.(db.TopCommodity)
@@ -25,6 +39,18 @@ func GetCommodity(w http.ResponseWriter, _ *http.Request) {
 }
 
 func InitilizeCommodity(w http.ResponseWriter, _ *http.Request) {
+	// swagger:operation POST /api/v1/InitializeCommodity InitializeCommodity
+	//
+	// Fill the cache with data from DB.
+	// ---
+	// consumes:
+	// - text/plain
+	// produces:
+	// - text/plain
+	// responses:
+	//   '200':
+	//     description: update the cache with data from DB.
+	//     type: string
 	UpdateCache()
 	w.WriteHeader(http.StatusCreated)
 }

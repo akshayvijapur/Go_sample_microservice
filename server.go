@@ -1,3 +1,20 @@
+// Sample go Cache microservice.
+//
+// This application will retrieve the top commodities from the market.
+//
+//     Schemes: http
+//     Host: localhost:3000
+//     Version: 0.0.1
+//     License: MIT http://opensource.org/licenses/MIT
+//     Contact: akshay vijapur<akshayvijapur@gmail.com>
+//
+//     Consumes:
+//     - text/plain
+//
+//     Produces:
+//     - text/plain
+//
+// swagger:meta
 package main
 
 import (
@@ -13,8 +30,6 @@ import (
 
 
 func main(){
-
-
 	go InitilizeAndUpdateDB()
 	go kafka.WaitForNotification()
 	router := mux.NewRouter().StrictSlash(true)

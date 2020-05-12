@@ -1,0 +1,63 @@
+{
+  "consumes": [
+    "text/plain"
+  ],
+  "produces": [
+    "text/plain"
+  ],
+  "schemes": [
+    "http"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "This application will retrieve the top commodities from the market.",
+    "title": "Sample go Cache microservice.",
+    "contact": {
+      "name": "akshay vijapur",
+      "email": "akshayvijapur@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    },
+    "version": "0.0.1"
+  },
+  "host": "localhost:3000",
+  "paths": {
+    "/api/v1/GetCommodity": {
+      "get": {
+        "description": "It will cache the item until data is updated\nin DB, Then receiver will get notification\nwhich will update the cache itself.",
+        "consumes": [
+          "text/plain"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "summary": "Returns Top Commodity item from stock market.",
+        "operationId": "GetCommodity",
+        "responses": {
+          "200": {
+            "description": "Top Commodity Item from the stock market"
+          }
+        }
+      }
+    },
+    "/api/v1/InitializeCommodity": {
+      "post": {
+        "consumes": [
+          "text/plain"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "summary": "Fill the cache with data from DB.",
+        "operationId": "InitializeCommodity",
+        "responses": {
+          "200": {
+            "description": "update the cache with data from DB."
+          }
+        }
+      }
+    }
+  }
+}
