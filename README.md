@@ -11,6 +11,7 @@ scribble is used as database, Any update in the database Apache Kafaka will noti
 * Sarama : Go client library for Apache Kafka.
 * scribble : A tiny JSON database in Golang.
 * go-cache : An in-memory key:value store.
+* Swagger : An API documentation toolkit
 
 ## Usage 
 
